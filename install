@@ -247,6 +247,9 @@ tar -xf "/tmp/latest-Nordic-darker.tar.xz" -C ~/.local/share/themes/
 install_packages "plymouth-theme-spinner"
 sudo plymouth-set-default-theme spinner -R &> /dev/null
 
+# Add .bashrc file to home folder
+sudo cp ~/Fedora/.bashrc ~/
+
 # Grub theme
 install_latest_release "Jacksaur/CRT-Amber-GRUB-Theme" "CRT-Amber-Theme.zip"
 sudo mkdir -p /boot/grub2/theme/CRT-Amber-Theme
