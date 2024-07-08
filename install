@@ -117,22 +117,6 @@ prompt_for_optional_install() {
     esac
 }
 
-# Function to clone and install mybash and Hyprland-Dotfiles
-mybash_and_dotfiles() {
-    local repository=$1
-    # Clonning the repository
-    print_message "${YELLOW}" "Clonning $repository repository!"
-    mkdir -p "$USER_HOME/GitHub/$repository"
-    if ! git clone "https://github.com/cameronm77/$repository" "$USER_HOME/GitHub/$repository" &> /dev/null; then
-        print_message "${RED}" "Failed to clone $repository repository."
-        return 1
-    fi
-
-    # Executing the install script
-    print_message "${YELLOW}" "Running $repository setup script..."
-    "$USER_HOME/GitHub/$repository/setup.sh"
-}
-
 nvidia() {
     if lspci | grep -i "nvidia" &> /dev/null; then
         print_message "${GREEN}" "NVIDIA GPU detected. Installing NVIDIA drivers..."
@@ -169,24 +153,20 @@ nvidia
 print_message "${GREEN}" "Adding COPR repositories..."
 add_copr_repos "solopasha/hyprland" "alebastr/sway-extras" "atim/starship" "ryanabx/cosmic-epoch" "phracek/PyCharm"
 
-# Install Hyprland Necessary Packages 
-print_message "${GREEN}" "Installing Hyprland packages..."
-install_packages "hyprland" "hyprlock" "hypridle" "polkit-gnome" "swww" "kitty" "mako" "xdg-user-dirs" "curl" "wget" "tar"
-
 # Create User Common directories
 xdg-user-dirs-update
 
 # Install other necessary packages
 print_message "${GREEN}" "Installing other necessary packages..."
-install_packages "pamixer" "gammastep" "starship" "brightnessctl" "lightdm" "bluez" "blueman" "cups" "rofi-wayland" "fastfetch" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "tumbler" "tumbler-extras" "file-roller"
+install_packages "pamixer" "gammastep" "starship" "brightnessctl" "bluez" "blueman" "cups" "fastfetch" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "tumbler" "tumbler-extras" "file-roller"
 
-print_message "${GREEN}" "Minimal Hyprland installed..."
+print_message "${GREEN}" "Minimal Fedora installed..."
 
 prompt_for_confirmation "Do you want to proceed with optional installations?"
 
 # Install CLI Packages
 print_message "${GREEN}" "Installing CLI packages..."
-install_packages "htop" "neovim" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "duo_unix" "duo_unix-selinux" "pam_duo"
+install_packages "htop" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "duo_unix" "duo_unix-selinux" "pam_duo"
 
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
@@ -213,7 +193,7 @@ if ! sudo dnf update --refresh -y &> /dev/null; then
 fi
 
 print_message "${GREEN}" "Installing GUI packages..."
-install_packages "nordvpn" "easyeffects" "calibre" "cool-retro-term" "baobab" "deluge-gtk" "gnome-disk-utility" "gnucash" "gparted" "firefox" "mousepad" "kde-connect" "pavucontrol" "qalculate-gtk" "inkscape" "ristretto" "gimp" "gimp-resynthesizer" "gimp-lensfun" "rawtherapee" "torbrowser-launcher" "vlc" "rpi-imager" "simple-scan" "wireshark" "nextcloud-client" "qflipper" "mangohud" "steam" "lutris" "wine" "winetricks" "gamescope"
+install_packages "nordvpn" "easyeffects" "calibre" "cool-retro-term" "baobab" "deluge-gtk" "firefox" "kde-connect" "pavucontrol" "qalculate-gtk" "inkscape" "ristretto" "gimp" "gimp-resynthesizer" "gimp-lensfun" "rawtherapee" "vlc" "rpi-imager" "simple-scan" "wireshark" "nextcloud-client" "qflipper" "mangohud" "steam" "lutris" "wine" "winetricks" "gamescope"
 
 # Flatpak apps
 print_message "${GREEN}" "Installing flatpak packages..."
@@ -245,26 +225,6 @@ mv "/tmp/latest-x86_64.AppImage" ~/Applications/Sonixd.AppImage
 print_message "${GREEN}" "Installing easyeffects presets..."
 mkdir -p ~/.config/easyeffects/output
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
-
-# Adding the Dotfiles
-prompt_for_optional_install "Do you want to add my Dotfiles?"
-if ! git clone "https://github.com/cameronm77/Hyprland-Dotfiles" &> /dev/null; then
-        print_message "${RED}" "Failed to clone Hyprland-Dotfiles repository."
-add_dotfiles() {
-    mybash_and_dotfiles "Hyprland-Dotfiles"
-}
-
-# Adding the mybash config
-prompt_mybash () {
- read -r -p "Do you want to add mybash config? (y/n): " choice
-    case "$choice" in 
-        y|Y ) ;;
-        n|N ) print_message "${YELLOW}" "Aborted by user. Exiting the script."; exit 1;;
-        * ) print_message "${RED}" "Invalid choice. Exiting the script."; exit 1;;
-    esac
-if ! git clone "https://github.com/cameronm77/mybash" "$USER_HOME/mybash" &> /dev/null; then
-        print_message "${RED}" "Failed to clone $repository repository."
-}
 
 # Install Nerd Font
 install_latest_release "ryanoasis/nerd-fonts" "JetBrainsMono.zip"
