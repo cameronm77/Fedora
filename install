@@ -151,7 +151,7 @@ nvidia
 
 # Adding COPR packages, such as hyprland
 print_message "${GREEN}" "Adding COPR repositories..."
-add_copr_repos "solopasha/hyprland" "alebastr/sway-extras" "atim/starship" "ryanabx/cosmic-epoch" "phracek/PyCharm"
+add_copr_repos "solopasha/hyprland" "alebastr/sway-extras" "atim/starship" "ryanabx/cosmic-epoch" "phracek/PyCharm" "atim/gping" "atim/bottom"
 
 # Create User Common directories
 xdg-user-dirs-update
@@ -166,7 +166,7 @@ prompt_for_confirmation "Do you want to proceed with optional installations?"
 
 # Install CLI Packages
 print_message "${GREEN}" "Installing CLI packages..."
-install_packages "btop" "neovim" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "duo_unix" "duo_unix-selinux" "pam_duo"
+install_packages "neovim" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "duo_unix" "duo_unix-selinux" "pam_duo" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie"
 
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
