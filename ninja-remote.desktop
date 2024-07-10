@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=NinjaOne Remote
+Exec=bash -c 'wine "/home/cmilani/.wine/drive_c/users/cmilani/AppData/Roaming/NinjaRemote/ncplayer.exe" "%u"'
+Type=Application
+Terminal=false
+MimeType=x-scheme-handler/ninjarmm;
+Name[en_US]=\sNinjaOne Remote
