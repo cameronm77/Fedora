@@ -1,7 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Name=ninjarmm
-Exec=bash -c 'echo "%u" | xargs wine "/home/Username/.PlayOnLinux/wineprefix/ninjarmm/drive_c/Program Files/NinjaRemote/ncplayer.exe" "-s" sed "ninjarmm://##"' 
-Type=Application
-Terminal=false
-MimeType=x-scheme-handler/ninjarmm;
