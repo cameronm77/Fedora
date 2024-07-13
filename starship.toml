@@ -1,0 +1,426 @@
+format = '$all'
+
+[aws]
+format = 'on [$symbol$profile]($style) '
+style = 'bold blue'
+symbol = '🅰 '
+
+[aws.profile_aliases]
+Enterprise_Naming_Scheme-voidstars = 'void**'
+
+[azure]
+disabled = false
+format = "on [$symbol($username)]($style) "
+symbol = "󰠅 "
+style = "blue bold"
+
+[azure.subscription_aliases]
+very-long-subscription-name = 'vlsn'
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '
+
+[[battery.display]] # 'bold red' style and discharging_symbol when capacity is between 0% and 10%
+threshold = 10
+style = 'bold red'
+
+[[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
+threshold = 30
+style = 'bold yellow'
+discharging_symbol = '💦 '
+
+# when capacity is over 30%, the battery indicator will not be displayed
+
+
+[buf]
+symbol = '🦬 '
+
+[bun]
+format = 'via [🍔 $version](bold green) '
+
+[c]
+symbol = " "
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
+
+[cmd_duration]
+min_time = 500
+format = 'underwent [$duration](bold yellow)'
+
+[conda]
+format = '[$symbol$environment](dimmed green) '
+symbol = " "
+
+[container]
+format = '[$symbol \[$name\]]($style) '
+
+[crystal]
+format = 'via [✨ $version](bold blue) '
+
+[daml]
+format = 'via [D $version](bold bright-green) '
+
+[dart]
+format = 'via [🔰 $version](bold red) '
+
+[deno]
+format = 'via [🦕 $version](green bold) '
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+home_symbol = '~'
+style = 'bold cyan'
+truncation_length = 8
+truncation_symbol = '…/'
+read_only = " 󰌾"
+
+[direnv]
+disabled = true
+
+[docker_context]
+format = 'via [🐋 $context](blue bold)'
+symbol = " "
+
+[dotnet]
+symbol = '🥅 '
+style = 'green'
+heuristic = false
+
+[elixir]
+symbol = '🔮 '
+
+[elm]
+format = 'via [ $version](cyan bold) '
+
+[erlang]
+format = 'via [e $version](bold red) '
+
+[fennel]
+symbol = '⫰ '
+
+[fossil_branch]
+symbol = '🦎 '
+truncation_length = 4
+truncation_symbol = ''
+
+[fossil_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[git_branch]
+symbol = '🌱 '
+truncation_length = 4
+truncation_symbol = ''
+ignore_branches = ['master', 'main']
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '🔖 '
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[git_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[git_status]
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+
+[gleam]
+format = 'via [⭐ $version](bold red) '
+
+[golang]
+format = 'via [🏎💨 $version](bold cyan) '
+
+[guix_shell]
+disabled = true
+format = 'via [🐂](yellow bold) '
+
+[haskell]
+symbol = " "
+
+[haxe]
+format = "via [⌘ $version](bold fg:202) "
+
+[helm]
+format = 'via [⎈ $version](bold white) '
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+trim_at = '.companyname.com'
+disabled = false
+
+[hg_branch]
+format = 'on [🌱 $branch](bold purple)'
+truncation_length = 4
+truncation_symbol = ''
+
+[java]
+symbol = '🌟 '
+
+[jobs]
+symbol = '+ '
+number_threshold = 4
+symbol_threshold = 0
+disabled = true
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = '🅺 '
+kotlin_binary = 'kotlinc'
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style)'
+contexts = [
+  { context_pattern = "*kind*", style = "cyan bold", symbol = "📚 " },
+  { context_pattern = "*rancher-desktop*", style = "cyan bold", symbol = "📚 " },
+
+  { context_pattern = "dev", style = "cyan bold", symbol = "🔵 " },
+  { context_pattern = "homolog", style = "yellow bold", symbol = "🟡 " },
+  { context_pattern = "prod", style = "red bold", symbol = "🔴 " },
+]
+
+[line_break]
+disabled = false
+
+[localip]
+ssh_only = true
+format = '@[$localipv4](bold red) '
+disabled = false
+
+[lua]
+format = 'via [🌕 $version](bold blue) '
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = ' '
+style = 'bold dimmed green'
+
+[meson]
+disabled = false
+truncation_symbol = '--'
+symbol = ' '
+style = 'bold dimmed green'
+
+[nats]
+format = '[$symbol]($style)'
+style = 'bold purple'
+
+[nim]
+style = 'yellow'
+symbol = '🎣 '
+
+[nix_shell]
+disabled = true
+impure_msg = '[impure shell](bold red)'
+pure_msg = '[pure shell](bold green)'
+unknown_msg = '[unknown shell](bold yellow)'
+format = 'via [☃️ $state( \($name\))](bold blue) '
+
+[nodejs]
+format = 'via [🤖 $version](bold green) '
+
+[ocaml]
+format = 'via [🐪 $version]($style) '
+
+[odin]
+format = 'via [󰹩 ($version )]($style)'
+show_commit = true
+
+[opa]
+format = 'via [⛑️  $version](bold red) '
+
+[openstack]
+format = 'on [$symbol$cloud(\($project\))]($style) '
+style = 'bold yellow'
+symbol = '☁️ '
+
+[os]
+format = "on [$symbol]($style)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+AIX = "➿ "
+Alpaquita = "🔔 "
+AlmaLinux = "💠 "
+Alpine = "🏔️ "
+Amazon = "🙂 "
+Android = "🤖 "
+Arch = "🎗️ "
+Artix = "🎗️ "
+CentOS = "💠 "
+Debian = "🌀 "
+DragonFly = "🐉 "
+Emscripten = "🔗 "
+EndeavourOS = "🚀 "
+Fedora = "🎩 "
+FreeBSD = "😈 "
+Garuda = "🦅 "
+Gentoo = "🗜️ "
+HardenedBSD = "🛡️ "
+Illumos = "🐦 "
+Kali = "🐉 "
+Linux = "🐧 "
+Mabox = "📦 "
+Macos = "🍎 "
+Manjaro = "🥭 "
+Mariner = "🌊 "
+MidnightBSD = "🌘 "
+Mint = "🌿 "
+NetBSD = "🚩 "
+NixOS = "❄️ "
+OpenBSD = "🐡 "
+OpenCloudOS = "☁️ "
+openEuler = "🦉 "
+openSUSE = "🦎 "
+OracleLinux = "🦴 "
+Pop = "🍭 "
+Raspbian = "🍓 "
+Redhat = "🎩 "
+RedHatEnterprise = "🎩 "
+RockyLinux = "💠 "
+Redox = "🧪 "
+Solus = "⛵ "
+SUSE = "🦎 "
+Ubuntu = "🎯 "
+Ultramarine = "🔷 "
+Unknown = "❓ "
+Void = "  "
+Windows = "🪟 "
+
+[package]
+format = 'via [🎁 $version](208 bold) '
+
+[perl]
+format = 'via [🦪 $version]($style) '
+
+[php]
+format = 'via [🔹 $version](147 bold) '
+
+[pijul_channel]
+symbol = " "
+
+[pulumi]
+format = '[🛥 ($version )$stack]($style) '
+
+[purescript]
+format = 'via [$symbol$version](bold white)'
+
+[python]
+symbol = '👾 '
+pyenv_version_name = true
+python_binary = 'python3'
+detect_extensions = []
+
+[rlang]
+format = 'with [📐 $version](blue bold) '
+
+[raku]
+format = 'via [🦪 $version]($style) '
+
+[red]
+symbol = '🔴 '
+
+[ruby]
+symbol = '🔺 '
+
+[rust]
+format = 'via [⚙️ $version](red bold)'
+
+[scala]
+symbol = '🌟 '
+
+[shell]
+fish_indicator = '󰈺 '
+pwsh_indicator = '_'
+zsh_indicator = 'zsh'
+bash_indicator = 'bsh'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = false
+
+[shlvl]
+disabled = true
+format = '[$symbol$shlvl]($style)'
+repeat = true
+symbol = '❯'
+repeat_offset = 1
+threshold = 0
+
+[singularity]
+format = '[📦 \[$env\]]($style) '
+
+[solidity]
+format = "via [S $version](blue bold)"
+
+[spack]
+format = '[$symbol$environment](dimmed blue) '
+
+[status]
+style = 'bg:blue'
+symbol = '🔴 '
+success_symbol = '🟢 SUCCESS'
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = true
+
+[sudo]
+style = 'bold green'
+symbol = '👩‍💻 '
+disabled = false
+
+[swift]
+format = 'via [🏎  $version](red bold)'
+
+[terraform]
+format = '[🏎💨 $version$workspace]($style) '
+
+[time]
+disabled = false
+format = '🕙[\[ $time \]]($style) '
+use_12hr = false
+time_format = '%T'
+utc_time_offset = 'local'
+time_range = '10:00:00-14:00:00'
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = 'user: [$user]($style) '
+disabled = false
+show_always = true
+aliases = { "corpuser034g" = "matchai" }
+
+[vagrant]
+format = 'via [⍱ $version](bold white) '
+
+[vlang]
+format = 'via [V $version](blue bold) '
+
+[vcsh]
+format = '[🆅 $repo](bold blue) '
+
+[zig]
+symbol = '⚡️ '
