@@ -57,13 +57,13 @@ alias cpuinfo='lscpu'
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 # SSH Server Alias 
-alias sshnas='sshk cmilani@172.16.1.253'
-alias sshoss='sshk cmilani@172.16.1.60'
-alias sshfw='ssh cmilani@172.16.1.1'
-alias sshdns='sshk cmilani@172.16.1.9'
-alias sshbw='sshk cmilani@172.16.1.80'
-alias sshha='sshk cmilani@172.16.1.4'
-alias sshda='sshk cmilani@172.16.1.117'
+alias sshnas='sshk SERVER'
+alias sshoss='sshk SERVER'
+alias sshfw='ssh SERVER'
+alias sshdns='SERVER'
+alias sshbw='sshk SERVER'
+alias sshha='sshk SERVER'
+alias sshda='sshk SERVER'
 
 eval "$(mcfly init zsh)"
 
