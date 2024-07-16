@@ -158,7 +158,7 @@ xdg-user-dirs-update
 
 # Install other necessary packages
 print_message "${GREEN}" "Installing other necessary packages..."
-install_packages "pamixer" "dnf-plugins-extras" "dnf-plugins-extras-tracer" "dnf-plugins-kickstart" "gammastep" "starship" "brightnessctl" "bluez" "blueman" "cups" "fastfetch" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "tumbler" "tumbler-extras" "file-roller"
+install_packages "pamixer""dnf-plugins-core" "python3-dnf-plugins-extras-common" "dnf-plugins-extras-tracer" "python3-dnf-plugin-tracer" "python3-dnf-plugin-kickstart" "gammastep" "starship" "brightnessctl" "bluez" "blueman" "cups" "fastfetch" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "tumbler" "tumbler-extras" "file-roller"
 
 print_message "${GREEN}" "Minimal Fedora installed..."
 
@@ -218,7 +218,7 @@ if ! sudo dnf update --refresh -y &> /dev/null; then
 fi
 
 print_message "${GREEN}" "Installing GUI packages..."
-install_packages "nordvpn" "duo_unix" "remmina" "remmina-plugins-spice" "spice-html5" "dynamips" "gns3-gui" "gns3-server" "gns3-server-doc""easyeffects" "calibre" "cool-retro-term" "baobab" "deluge-gtk" "firefox" "kde-connect" "pavucontrol" "qalculate-gtk" "inkscape" "ristretto" "gimp" "gimp-resynthesizer" "gimp-lensfun" "rawtherapee" "vlc" "rpi-imager" "simple-scan" "wireshark" "nextcloud-client" "qflipper" "mangohud" "steam" "lutris" "wine" "winetricks" "gamescope"
+install_packages "nordvpn" "duo_unix" "remmina" "remmina-plugins-spice" "spice-html5" "dynamips" "gns3-gui" "gns3-server" "gns3-server-doc" "easyeffects" "calibre" "cool-retro-term" "baobab" "deluge-gtk" "firefox" "kde-connect" "pavucontrol" "qalculate-gtk" "inkscape" "ristretto" "gimp" "gimp-resynthesizer" "gimp-lensfun" "rawtherapee" "vlc" "rpi-imager" "simple-scan" "wireshark" "nextcloud-client" "qflipper" "mangohud" "steam" "lutris" "wine" "winetricks" "gamescope"
 
 # Flatpak apps
 print_message "${GREEN}" "Installing flatpak packages..."
@@ -247,16 +247,16 @@ install_latest_release "TheAssassin/AppImageLauncher" "x86_64.rpm"
 
 # Sonixd AppImage
 install_latest_release "jeffvli/sonixd" "x86_64.AppImage"
-mv "/tmp/latest-x86_64.AppImage" /Home/cmilani/Applications/Sonixd.AppImage
+mv "/tmp/latest-x86_64.AppImage" /home/cmilani/Applications/Sonixd.AppImage
 
 # Easyeffects Presets
 print_message "${GREEN}" "Installing easyeffects presets..."
-mkdir -p ~/.config/easyeffects/output
+mkdir -p /home/cmilani/.config/easyeffects/output
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
 
 # Install Nerd Font
 install_latest_release "ryanoasis/nerd-fonts" "JetBrainsMono.zip"
-mkdir -p ~/.local/share/fonts/JetBrainsMono/
+mkdir -p /home/cmilani/.local/share/fonts/JetBrainsMono/
 unzip -o "/tmp/latest-JetBrainsMono.zip" -d /home/cmilani/.local/share/fonts/JetBrainsMono/ &> /dev/null
 fc-cache -fv &> /dev/null
 
@@ -283,7 +283,7 @@ wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.zshrc -P /home/cm
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/starship.toml -P /home/cmilani/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/10-yubikey_lock.rules -P /etc/udev/rules.d/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.my-custom-zsh.tar.gz -P /home/cmilani/
-tar -xf "/home/cmilani/.my-custom-zsh.tar.gz" 
+tar -xf --no-same-owner --no-same-permissions --warning=no-unknown-keyword --warning=no-timestamp --delay-directory-restore "/home/cmilani/.my-custom-zsh.tar.gz" 
 
 # Install McFly
 print_message "${GREEN}" "Installing McFly..."
