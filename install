@@ -276,10 +276,12 @@ install_packages "plymouth-theme-spinner"
 sudo plymouth-set-default-theme spinner -R &> /dev/null
 
 # Add .bashrc file to home folder
-mkdir -p ~/Fedora/
-cd ~/Fedora
-wget https://github.com/cameronm77/Fedora/blob/main/.bashrc
-sudo cp ~/Fedora/.bashrc /home/cmilani/
+print_message "${GREEN}" "Download and Copy DotFiles
+wget https://github.com/cameronm77/Fedora/blob/main/.bashrc -P /home/cmilani/
+wget https://github.com/cameronm77/Fedora/blob/main/kitty.conf -P /home/cmilani/.config/kitty/
+wget https://github.com/cameronm77/Fedora/blob/main/.zshrc -P /home/cmilani/
+wget https://github.com/cameronm77/Fedora/blob/main/starship.toml -P /home/cmilani/
+wget https://github.com/cameronm77/Fedora/blob/main/10-yubikey_lock.rules -P /etc/udev/rules.dan
 
 # Grub theme
 install_latest_release "Jacksaur/CRT-Amber-GRUB-Theme" "CRT-Amber-Theme.zip"
