@@ -276,7 +276,7 @@ install_packages "plymouth-theme-spinner"
 sudo plymouth-set-default-theme spinner -R &> /dev/null
 
 # Add .bashrc file to home folder
-print_message "${GREEN}" "Download and Copy DotFiles
+print_message "${GREEN}" "Download and Copy DotFiles"
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.bashrc -P /home/cmilani/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/kitty.conf -P /home/cmilani/.config/kitty/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.zshrc -P /home/cmilani/
