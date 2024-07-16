@@ -275,17 +275,13 @@ tar -xf "/tmp/latest-Nordic-darker.tar.xz" -C ~/.local/share/themes/
 install_packages "plymouth-theme-spinner"
 sudo plymouth-set-default-theme spinner -R &> /dev/null
 
-# Install Oh-My-ZSH
-print_message "${GREEN}" "Install Oh-My-ZSH"
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Add .bashrc file to home folder
 print_message "${GREEN}" "Download and Copy DotFiles"
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.bashrc -P /home/cmilani/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/kitty.conf -P /home/cmilani/.config/kitty/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.zshrc -P /home/cmilani/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/starship.toml -P /home/cmilani/
-wget https://raw.githubusercontent.com/cameronm77/Fedora/main/10-yubikey_lock.rules -P /etc/udev/rules.dan
+wget https://raw.githubusercontent.com/cameronm77/Fedora/main/10-yubikey_lock.rules -P /etc/udev/rules.d/
 
 # Grub theme
 install_latest_release "Jacksaur/CRT-Amber-GRUB-Theme" "CRT-Amber-Theme.zip"
@@ -296,6 +292,10 @@ sudo sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/' \
             -e '$ a GRUB_THEME="/boot/grub2/theme/CRT-Amber-Theme/CRT-Amber-GRUB-Theme/theme.txt"' \
             /etc/default/grub
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg &> /dev/null
+
+# Install Oh-My-ZSH
+print_message "${GREEN}" "Install Oh-My-ZSH"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 print_message "${GREEN}" "Installation completed successfully."
 print_message "${GREEN}" "You should now reboot."
