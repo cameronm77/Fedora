@@ -166,7 +166,7 @@ prompt_for_confirmation "Do you want to proceed with optional installations?"
 
 # Install CLI Packages
 print_message "${GREEN}" "Installing CLI packages..."
-install_packages "neovim" "gh" "kubernetes-client" "zsh-autosuggestions" "autojump-zsh" "autojump" "wimlib" "wimlib-utils" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc"
+install_packages "neovim" "gh" "zsh" "kubernetes-client" "zsh-autosuggestions" "autojump-zsh" "autojump" "wimlib" "wimlib-utils" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc"
 
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
