@@ -1,213 +1,105 @@
-if [ -f /etc/zshrc ]; then
-    . /etc/zshrc
-fi
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="random"
 
-# User specific aliases and functions
-if [ -d ~/.zshrc.d ]; then
-    for rc in ~/.zshrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
-fi
-unset rc
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Aliases
-alias sci='ssh-copy-id'
-alias sshk='kitten ssh'
-alias updateall='sudo dnf update --refresh'
-alias z='cd'
-alias cat='bat'
-alias tracert='mtr'
-alias nano='sudo nano'
-alias c='clear'
-alias reboot='systemctl reboot'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .4='cd ../../../../..'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias sha1='openssl sha1'
-alias mkdir='mkdir -pv'
-alias h='history'
-alias j='jobs -l'
-alias ping='ping -c 10'
-alias fastping='ping -c 100 -s.2'
-alias ports='netstat -tulanp'
-alias meminfo='free -m -l -t'
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias pscpu='ps auxf | sort -nr -k 3'
-alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-alias cpuinfo='lscpu'
-alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# SSH Server Alias 
-alias sshnas='sshk SERVER'
-alias sshoss='sshk SERVER'
-alias sshfw='ssh SERVER'
-alias sshdns='SERVER'
-alias sshbw='sshk SERVER'
-alias sshha='sshk SERVER'
-alias sshda='sshk SERVER'
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-eval "$(mcfly init zsh)"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# list files with details
-alias ll="ls -larht"
+# Uncomment the following line to change how often to auto-update (in days).
+zstyle ':omz:update' frequency 1
 
-# show confirm prompt
-alias rm="rm -i"
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
-# documents shortcut
-alias cdd='cd "$HOME/Documents"'
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# show all history lines
-alias history="history 1"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# alias for kubectl plugins
-alias kubectx="kubectl-ctx"
-alias kubens="kubectl-ns"
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
-# set the locale of the shell
-export LANG="en_US.UTF-8"
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+COMPLETION_WAITING_DOTS="true"
 
-# define VSCode as the default text editor
-export EDITOR="code -w"
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# include user-specific binaries and scripts
-export PATH="$HOME/.local/bin:$PATH"
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
 
-# add Rust binaries to the PATH
-export PATH="$PATH:$HOME/.cargo/bin"
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# add Go binaries to the PATH
-export PATH="$PATH:$HOME/go/bin"
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git autojump battery azure common-aliases dnf docker docker-compose firewalld fzf kitty mosh nmap ripgrep ssh ssh-agent sudo systemd systemadmin thefuck toolbox ufw vscode zoxide zsh-interactive-cd zsh-navigation-tools)
 
-# system wide cli
-export PATH="$PATH:/usr/local/bin"
+source $ZSH/oh-my-zsh.sh
 
-# include Krew binaries for managing kubectl plugins
-export PATH="$PATH:$HOME/.krew/bin"
+# User configuration
 
-# add bundle cli binaries of the rancher desktop
-export PATH="$PATH:$HOME/.rd/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# colorize "kubectl diff" command outputs
-export KUBECTL_EXTERNAL_DIFF="colordiff -N -u"
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# specify characters considered as word boundaries for command line navigation
-export WORDCHARS=""
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# set the location and filename of the history file
-export HISTFILE="$HOME/.zsh_history"
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# set the maximum number of lines to be saved in the history file
-export HISTSIZE="100000"
-export SAVEHIST="$HISTSIZE"
-
-# fzf parameters used in all widgets - configure layout and wrapped the preview results (useful in large command rendering)
-export FZF_DEFAULT_OPTS="--height 100% --layout reverse --preview-window=wrap"
-
-# CTRL + R: put the selected history command in the preview window - "{}" will be replaced by item selected in fzf execution runtime
-export FZF_CTRL_R_OPTS="--preview 'echo {}'"
-
-# ALT + C: set "fd-find" as directory search engine instead of "find" and exclude venv of the results during searching
-export FZF_ALT_C_COMMAND="fd --type directory --ignore-file $HOME/.my-custom-zsh/.fd-fzf-ignore"
-
-# ALT + C: put the tree command output based on item selected
-export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
-
-# CTRL + T: set "fd-find" as search engine instead of "find" and exclude .git for the results
-export FZF_CTRL_T_COMMAND="fd --exclude .git --ignore-file $HOME/.my-custom-zsh/.fd-fzf-ignore"
-
-# CTRL + T: put the file content if item select is a file, or put tree command output if item selected is directory
-export FZF_CTRL_T_OPTS="--preview '[ -d {} ] && tree -C {} || bat --color=always --style=numbers {}'"
-
-# disable CTRL + S and CTRL + Q
-stty -ixon
-
-# enable comments "#" expressions in the prompt shell
-setopt INTERACTIVE_COMMENTS
-
-# append new history entries to the history file
-setopt APPEND_HISTORY
-
-# save each command to the history file as soon as it is executed
-setopt INC_APPEND_HISTORY
-
-# ignore recording duplicate consecutive commands in the history
-setopt HIST_IGNORE_DUPS
-
-# ignore commands that start with a space in the history
-setopt HIST_IGNORE_SPACE
-
-# >>> bindkey tip: to discovery the code of your keys, execute "$ cat -v" and press the key, the code will be printed in your shell.
-
-# use the ZLE (zsh line editor) in emacs mode. Useful to move the cursor in large commands
-bindkey -e
-
-# navigate words using Ctrl + arrow keys
-# >>> CRTL + right arrow | CRTL + left arrow
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
-# search history using Up and Down keys
-# >>> up arrow | down arrow
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
-
-# jump to the start and end of the command line
-# >>> CTRL + A | CTRL + E
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-# >>> Home | End
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-
-# navigate menu for command output
-zstyle ':completion:*:*:*:*:*' menu select
-bindkey '^[[Z' reverse-menu-complete
-
-# delete characters using the "delete" key
-bindkey "^[[3~" delete-char
-
-# fzf alias: CTRL + SPACE -> (ALT + C)
-bindkey "^@" fzf-cd-widget
-
-# fzf alias: CTRL + F -> (CTRL + T)
-bindkey "^F" fzf-file-widget
-
-# >>> load ZSH plugin
-
-# enable kubectl plugin autocompletion
-autoload -Uz compinit
-compinit
-source "$HOME/.my-custom-zsh/kubectl.plugin.zsh"
-source <(kubectl completion zsh)
-
-# load zsh-autosuggestions
-source "$HOME/.my-custom-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-# load zsh-syntax-highlighting
-source "$HOME/.my-custom-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# load fzf keybindings and completions
-eval "$(fzf --zsh)"
-
-# start Starship prompt
-#eval "$(starship init zsh)"
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+source $ZSH_CUSTOM/aliases.zsh
