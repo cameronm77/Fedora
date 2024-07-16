@@ -210,4 +210,4 @@ source "$HOME/.my-custom-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(fzf --zsh)"
 
 # start Starship prompt
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
