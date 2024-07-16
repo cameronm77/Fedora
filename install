@@ -166,7 +166,7 @@ prompt_for_confirmation "Do you want to proceed with optional installations?"
 
 # Install CLI Packages
 print_message "${GREEN}" "Installing CLI packages..."
-install_packages "neovim" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc" "oh-my-zsh"
+install_packages "neovim" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc"
 
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
@@ -274,6 +274,10 @@ tar -xf "/tmp/latest-Nordic-darker.tar.xz" -C ~/.local/share/themes/
 # Change Plymouth
 install_packages "plymouth-theme-spinner"
 sudo plymouth-set-default-theme spinner -R &> /dev/null
+
+# Install Oh-My-ZSH
+print_message "${GREEN}" "Install Oh-My-ZSH"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Add .bashrc file to home folder
 print_message "${GREEN}" "Download and Copy DotFiles"
