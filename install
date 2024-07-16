@@ -247,7 +247,7 @@ install_latest_release "TheAssassin/AppImageLauncher" "x86_64.rpm"
 
 # Sonixd AppImage
 install_latest_release "jeffvli/sonixd" "x86_64.AppImage"
-mv "/tmp/latest-x86_64.AppImage" ~/Applications/Sonixd.AppImage
+mv "/tmp/latest-x86_64.AppImage" /Home/cmilani/Applications/Sonixd.AppImage
 
 # Easyeffects Presets
 print_message "${GREEN}" "Installing easyeffects presets..."
@@ -257,7 +257,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-
 # Install Nerd Font
 install_latest_release "ryanoasis/nerd-fonts" "JetBrainsMono.zip"
 mkdir -p ~/.local/share/fonts/JetBrainsMono/
-unzip -o "/tmp/latest-JetBrainsMono.zip" -d ~/.local/share/fonts/JetBrainsMono/ &> /dev/null
+unzip -o "/tmp/latest-JetBrainsMono.zip" -d /home/cmilani/.local/share/fonts/JetBrainsMono/ &> /dev/null
 fc-cache -fv &> /dev/null
 
 # Install Bibata Cursor theme
@@ -269,7 +269,7 @@ sudo sed -i "s/Inherits=.*/Inherits=Bibata-Modern-Classic/" "/usr/share/icons/de
 # Install Nordic Darked theme
 install_latest_release "EliverLara/Nordic" "Nordic-darker.tar.xz"
 mkdir -p ~/.local/share/themes/Nordic-darker/
-tar -xf "/tmp/latest-Nordic-darker.tar.xz" -C ~/.local/share/themes/
+tar -xf "/tmp/latest-Nordic-darker.tar.xz" -C /home/cmilani/.local/share/themes/
 
 # Change Plymouth
 install_packages "plymouth-theme-spinner"
