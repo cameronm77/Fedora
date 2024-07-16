@@ -267,9 +267,9 @@ sudo tar -xf "/tmp/latest-Bibata-Modern-Classic.tar.xz" -C /usr/share/icons/
 sudo sed -i "s/Inherits=.*/Inherits=Bibata-Modern-Classic/" "/usr/share/icons/default/index.theme"
 
 # Install Nordic Darked theme
-install_latest_release "EliverLara/Nordic" "Nordic-darker.tar.xz"
+install_latest_release "EliverLara/Nordic" "Nordic-darker-v40.tar.xz"
 mkdir -p /home/cmilani/.local/share/themes/Nordic-darker/
-tar -xf "/tmp/latest-Nordic-darker.tar.xz" -C /home/cmilani/.local/share/themes/
+tar -xf "/tmp/latest-Nordic-darker-v40.tar.xz" -C /home/cmilani/.local/share/themes/
 
 # Change Plymouth
 install_packages "plymouth-theme-spinner"
