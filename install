@@ -283,7 +283,7 @@ wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.zshrc -P /home/cm
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/starship.toml -P /home/cmilani/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/10-yubikey_lock.rules -P /etc/udev/rules.d/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.my-custom-zsh.tar.gz -P /home/cmilani/
-tar -xf --no-same-owner --no-same-permissions --warning=no-unknown-keyword --warning=no-timestamp --delay-directory-restore "/home/cmilani/.my-custom-zsh.tar.gz" 
+tar -xf --warning=no-unknown-keyword "/home/cmilani/.my-custom-zsh.tar.gz" 
 
 # Install McFly
 print_message "${GREEN}" "Installing McFly..."
