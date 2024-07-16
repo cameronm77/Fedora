@@ -166,7 +166,7 @@ prompt_for_confirmation "Do you want to proceed with optional installations?"
 
 # Install CLI Packages
 print_message "${GREEN}" "Installing CLI packages..."
-install_packages "neovim" "gh" "autojump" "wimlib" "wimlib-utils" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc"
+install_packages "neovim" "gh" "kubernetes-client" "zsh-autosuggestions" "autojump-zsh" "autojump" "wimlib" "wimlib-utils" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc"
 
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
@@ -282,6 +282,10 @@ wget https://raw.githubusercontent.com/cameronm77/Fedora/main/kitty.conf -P /hom
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/.zshrc -P /home/cmilani/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/starship.toml -P /home/cmilani/
 wget https://raw.githubusercontent.com/cameronm77/Fedora/main/10-yubikey_lock.rules -P /etc/udev/rules.d/
+
+# Install McFly
+print_message "${GREEN}" "Installing McFly..."
+curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly
 
 # Grub theme
 install_latest_release "Jacksaur/CRT-Amber-GRUB-Theme" "CRT-Amber-Theme.zip"
