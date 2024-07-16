@@ -158,7 +158,7 @@ xdg-user-dirs-update
 
 # Install other necessary packages
 print_message "${GREEN}" "Installing other necessary packages..."
-install_packages "pamixer""dnf-plugins-core" "python3-dnf-plugins-extras-common" "dnf-plugins-extras-tracer" "python3-dnf-plugin-tracer" "python3-dnf-plugin-kickstart" "gammastep" "starship" "brightnessctl" "bluez" "blueman" "cups" "fastfetch" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "tumbler" "tumbler-extras" "file-roller"
+install_packages "pamixer" "dnf-plugins-core" "python3-dnf-plugins-extras-common" "dnf-plugins-extras-tracer" "python3-dnf-plugin-tracer" "python3-dnf-plugin-kickstart" "gammastep" "starship" "brightnessctl" "bluez" "blueman" "cups" "fastfetch" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "tumbler" "tumbler-extras" "file-roller"
 
 print_message "${GREEN}" "Minimal Fedora installed..."
 
