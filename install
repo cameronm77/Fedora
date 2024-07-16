@@ -251,7 +251,7 @@ mv "/tmp/latest-x86_64.AppImage" /home/cmilani/Applications/Sonixd.AppImage
 
 # Easyeffects Presets
 print_message "${GREEN}" "Installing easyeffects presets..."
-mkdir -p /home/cmilani/.config/easyeffects/output
+mkdir -p ~/.config/easyeffects/output
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
 
 # Install Nerd Font
