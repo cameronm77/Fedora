@@ -166,30 +166,55 @@ prompt_for_confirmation "Do you want to proceed with optional installations?"
 
 # Install CLI Packages
 print_message "${GREEN}" "Installing CLI packages..."
-install_packages "neovim" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "duo_unix" "duo_unix-selinux" "pam_duo" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc"
+install_packages "neovim" "gh" "autojump" "cmatrix" "hugo" "rclone" "tldr" "tree" "trash-cli" "powertop" "qalculate" "python3-pip" "dbus-glib" "papirus-icon-theme" "wireguard-tools" "libwebp-devel" "jq" "mtr" "p7zip" "zoxide" "ykclient" "ykpers" "yubico-piv-tool" "pam_yubico" "fido2-tools" "pamtester" "duo_unix-selinux" "pam_duo" "bat" "lsd" "duf" "ripgrep" "fzf" "cheat" "glances" "btop" "htop" "procs" "httpie" "resources" "sniffglue" "rustscan" "gitui" "breeze" "ipcalc"
 
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
 if ! sudo dnf config-manager --add-repo https://repo.nordvpn.com/yum/nordvpn/centos/x86_64 -y &> /dev/null; then
     print_message "${RED}" "Failed to add NordVPN repository."
 fi
+
+#Install GPG Key for NordVPN
+print_message "${GREEN}" "Adding GPG Key..."
+if ! sudo rpm --import https://repo.nordvpn.com/gpg/nordvpn_public.asc &> /dev/null; then
+   print_message "${RED}" "Failed to add GPG Key."
+fi
+
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
 if ! sudo dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge -y &> /dev/null; then
     print_message "${RED}" "Failed to add MS Edge repository."
 fi
+
+#Install GPG Key for Microsoft
+print_message "${GREEN}" "Adding GPG Key..."
+if ! sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &> /dev/null; then
+   print_message "${RED}" "Failed to add GPG Key."
+fi
+
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
 if ! sudo dnf config-manager --add-repo https://packages.microsoft.com/fedora/40/prod -y &> /dev/null; then
     print_message "${RED}" "Failed to add MS Prod repository."
 fi
+
 # Install GUI packages
 print_message "${GREEN}" "Adding repositories..."
 if ! sudo dnf config-manager --add-repo https://pkg.duosecurity.com/Fedora/38/x86_64 -y &> /dev/null; then
     print_message "${RED}" "Failed to add Duo repository."
-# Update Repos
+fi
+
+#Install GPG Key for Duo
+print_message "${GREEN}" "Adding GPG Key..."
+if ! sudo rpm --import https://duo.com/DUO-GPG-PUBLIC-KEY.asc &> /dev/null; then
+   print_message "${RED}" "Failed to add GPG Key."
+fi
+
+# Updating repositories list
+print_message "${GREEN}" "Updating repositories..."
 if ! sudo dnf update --refresh -y &> /dev/null; then
-    print_message "${RED}" "Failed to update repositories."
+    print_message "${RED}" "Failed to update the repositories."
+    exit 1
 fi
 
 print_message "${GREEN}" "Installing GUI packages..."
@@ -212,7 +237,10 @@ install_latest_release "SpacingBat3/WebCord" "x86_64.rpm"
 
 # AppImages
 print_message "${GREEN}" "Installing AppImages..."
-mkdir -p ~/Applications
+mkdir -p /home/cmilani/Applications
+
+# Install Nordvpn GUI Appimage
+wget https://github.com/imatefx/nordvpn-gui/releases/download/v1.0.0/nordvpn-gui_1.0.0_amd64.AppImage -P /home/cmilani/Applications/
 
 # Install AppImageLauncher
 install_latest_release "TheAssassin/AppImageLauncher" "x86_64.rpm"
@@ -248,7 +276,10 @@ install_packages "plymouth-theme-spinner"
 sudo plymouth-set-default-theme spinner -R &> /dev/null
 
 # Add .bashrc file to home folder
-sudo cp ~/Fedora/.bashrc ~/
+mkdir -p ~/Fedora/
+cd ~/Fedora
+wget https://github.com/cameronm77/Fedora/blob/main/.bashrc
+sudo cp ~/Fedora/.bashrc /home/cmilani/
 
 # Grub theme
 install_latest_release "Jacksaur/CRT-Amber-GRUB-Theme" "CRT-Amber-Theme.zip"
