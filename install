@@ -268,7 +268,7 @@ sudo sed -i "s/Inherits=.*/Inherits=Bibata-Modern-Classic/" "/usr/share/icons/de
 
 # Install Nordic Darked theme
 install_latest_release "EliverLara/Nordic" "Nordic-darker.tar.xz"
-mkdir -p ~/.local/share/themes/Nordic-darker/
+mkdir -p /home/cmilani/.local/share/themes/Nordic-darker/
 tar -xf "/tmp/latest-Nordic-darker.tar.xz" -C /home/cmilani/.local/share/themes/
 
 # Change Plymouth
