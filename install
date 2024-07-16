@@ -301,7 +301,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg &> /dev/null
 
 # Install Oh-My-ZSH
 print_message "${GREEN}" "Install Oh-My-ZSH"
+print_message "${GREEN}" "Installation completed successfully."
+print_message "${GREEN}" "Please Reboot after OMZ install."
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-print_message "${GREEN}" "Installation completed successfully."
-print_message "${GREEN}" "You should now reboot."
