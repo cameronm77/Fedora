@@ -210,6 +210,12 @@ if ! sudo rpm --import https://duo.com/DUO-GPG-PUBLIC-KEY.asc &> /dev/null; then
    print_message "${RED}" "Failed to add GPG Key."
 fi
 
+# Install GUI packages
+print_message "${GREEN}" "Adding repositories..."
+if ! sudo dnf config-manager --add-repo https://packages.netxms.org/fedora/netxms.repo -y &> /dev/null; then
+    print_message "${RED}" "Failed to add NetXMS repository."
+fi
+
 # Updating repositories list
 print_message "${GREEN}" "Updating repositories..."
 if ! sudo dnf update --refresh -y &> /dev/null; then
