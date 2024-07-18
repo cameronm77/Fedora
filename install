@@ -224,7 +224,7 @@ if ! sudo dnf update --refresh -y &> /dev/null; then
 fi
 
 print_message "${GREEN}" "Installing GUI packages..."
-install_packages "nordvpn" "mediawriter" "nextcloud-client-dolphin" "dolphin-plugins" "duo_unix" "remmina" "remmina-plugins-x2go" "remmina-plugins-python" "remmina-plugins-kwallet" "remmina-plugins-www" "kate" "kate-plugins" "kate-krunner-plugin" "remmina-plugins-spice" "spice-html5" "dynamips" "gns3-gui" "gns3-server" "gns3-server-doc" "easyeffects" "calibre" "cool-retro-term" "baobab" "deluge-gtk" "firefox" "kde-connect" "pavucontrol" "qalculate-gtk" "inkscape" "ristretto" "gimp" "gimp-resynthesizer" "gimp-lensfun" "rawtherapee" "vlc" "rpi-imager" "simple-scan" "wireshark" "nextcloud-client" "qflipper" "mangohud" "steam" "lutris" "wine" "winetricks" "gamescope"
+install_packages "nordvpn" "openh264" "switchdesk" "switchdesk-gui" "gstreamer1-plugin-openh264" "mozilla-openh264" "mediawriter" "nextcloud-client-dolphin" "dolphin-plugins" "duo_unix" "remmina" "remmina-plugins-x2go" "remmina-plugins-python" "remmina-plugins-kwallet" "remmina-plugins-www" "kate" "kate-plugins" "kate-krunner-plugin" "remmina-plugins-spice" "spice-html5" "dynamips" "gns3-gui" "gns3-server" "gns3-server-doc" "easyeffects" "calibre" "cool-retro-term" "baobab" "deluge-gtk" "firefox" "kde-connect" "pavucontrol" "qalculate-gtk" "inkscape" "ristretto" "gimp" "gimp-resynthesizer" "gimp-lensfun" "rawtherapee" "vlc" "rpi-imager" "simple-scan" "wireshark" "nextcloud-client" "qflipper" "mangohud" "steam" "lutris" "wine" "winetricks" "gamescope"
 
 # Flatpak apps
 print_message "${GREEN}" "Installing flatpak packages..."
